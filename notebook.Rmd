@@ -9,11 +9,25 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+``` {r}
+movies <- read.csv("movies.csv")
+```
+
 ## Sara
 
 
 
 ## Guillermo
+
+### 4.4 ¿Cuál es la peor película de acuerdo a los votos de todos los usuarios? 
+``` {r}
+min_votes <- min(movies$voteAvg)
+movie <- movies[movies$voteAvg == min_votes,"title"]
+movie
+```
+
+
 
 
 
