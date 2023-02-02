@@ -24,8 +24,8 @@ movies <- read.csv("movies.csv")
 ``` {r}
 min_votes <- min(movies$voteAvg)
 movie <- movies[movies$voteAvg == min_votes,"title"]
-movie
 ```
+La pelicula con menos votos es: `r movie`
 
 
 
