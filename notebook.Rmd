@@ -21,7 +21,40 @@ summary(movies)
 ```
 
 ## Sara
-### a
+### 2. Diga el tipo de cada una de las variables (cualitativa ordinal o nominal, cuantitativa continua, cuantitativa discreta) 
+```{r}
+str(movies)
+```
+### Tipo de las variables
+* id: cualitativa ordinal  
+* popularity: cuantitativa continua  
+* budget: cuantitativa discreta  
+* revenue: cuantitativa discreta  
+* original_title: cualitativa nominal  
+* originalLanguage: cualitativa nominal  
+* title: cualitativa nominal  
+* homePage: cualitativa nominal  
+* video: cualitativa nominal  
+* director: cualitativa nominal  
+* runtime: cuantitativa discreta
+* genres: cualitativa nominal
+* genresAmount: cuantitativa discreta  
+* productionCompany: cualitativa nominal  
+* productionCoAmount: cuantitativa discreta  
+* productionCompantCountry: cualitativa nominal  
+* productionCountry: cualitativa nominal  
+* productionCountriesAmount: cuantitativa discreta  
+* releaseDate: cualitativa nominal  
+* voteCount: cuantitativa discreta  
+* voteAvg: cuantitativa continua  
+* actors: cualitativa nominal  
+* actorsPopularity: cuantitativa continua
+* actorsCharacter: cualitativa nominal  
+* actorsAmount: cuantitativa discreta  
+* castWomenAmount: cuantitativa discreta  
+* castMenAmount: cuantitativa discreta  
+
+
 
 
 
