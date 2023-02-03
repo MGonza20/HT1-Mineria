@@ -322,6 +322,14 @@ abline(lm(revenue ~ budget), col = "red", lwd = 3)
 text(paste("Correlation:", round(cor(budget, revenue), 2)), x = 25, y = 95)
 ```
 El indice de correlación es 0.76, por lo que las variables están relacionadas ligeramente.
+### 4.14
+``` {r}
+califications  <- movies$voteAvg
+revenue  <- movies$revenue
+plot(califications, revenue, pch = 19, col = "lightblue")
+abline(lm(revenue ~ califications), col = "red", lwd = 3)
+text(paste("Correlation:", round(cor(califications, revenue), 2)), x = 25, y = 95)
+```
 ### 4.15 ¿A qué género principal pertenecen las películas más largas?
 ``` {r}
 long_movies <- movies[order(-movies$runtime), ]
