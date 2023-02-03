@@ -29,18 +29,23 @@ La pelicula con menos votos es: `r movie`
 
 
 
-
-
 ## Cristian
 
 
+### 1. Haga una exploración rápida de sus datos, para eso haga un resumen de su conjunto de datos.
+``` {r}
+summary(movies)
+```
 
+### 4.11 ¿Cómo se correlacionan los presupuestos con los ingresos? ¿Los altos presupuestos significan altos ingresos? Haga los gráficos que necesite, histograma, diagrama de dispersión
+``` {r}
+hist(movies$budget, main = "¿Cómo se correlacionan los presupuestos con los ingresos?")
+```
 
+### 4.15 ¿A qué género principal pertenecen las películas más largas? (genres, runtime)
+``` {r}
 
-
-
-
-
+```
 
 ## R Markdown
 
