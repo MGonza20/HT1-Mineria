@@ -241,7 +241,11 @@ print(result)
 
 ### 4.11 ¿Cómo se correlacionan los presupuestos con los ingresos? ¿Los altos presupuestos significan altos ingresos? Haga los gráficos que necesite, histograma, diagrama de dispersión
 ``` {r}
-hist(movies$budget, main = "¿Cómo se correlacionan los presupuestos con los ingresos?")
+budget  <- movies$budget
+revenue  <- movies$revenue
+plot(budget, revenue, pch = 19, col = "lightblue")
+abline(lm(revenue ~ budget), col = "red", lwd = 3)
+text(paste("Correlation:", round(cor(budget, revenue), 2)), x = 25, y = 95)
 ```
 
 ### 4.15 ¿A qué género principal pertenecen las películas más largas?
