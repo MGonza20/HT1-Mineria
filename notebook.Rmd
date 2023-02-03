@@ -115,10 +115,17 @@ norm: `r pnormGenAm`
 
 ### 4.1 ¿Cuáles son las 10 películas que contaron con más presupuesto?
 ```{r}
+library(dplyr)
 moviesP <- movies[order(-movies$budget),]
-head(moviesP$title, 10)
+head(select(moviesP, title, budget), 10)
 ```
 
+### 4.2 ¿Cuáles son las 10 películas que más ingresos tuvieron? 
+```{r}
+library(dplyr)
+moviesP <- movies[order(-movies$revenue),]
+head(select(moviesP, title, revenue), 10)
+```
 
 
 
