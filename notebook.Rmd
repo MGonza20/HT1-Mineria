@@ -14,7 +14,14 @@ knitr::opts_chunk$set(echo = TRUE)
 movies <- read.csv("movies.csv")
 ```
 
+## Cristian
+### 1. Haga una exploración rápida de sus datos, para eso haga un resumen de su conjunto de datos.
+``` {r}
+summary(movies)
+```
+
 ## Sara
+### a
 
 
 
@@ -30,12 +37,6 @@ La pelicula con menos votos es: `r movie`
 
 
 ## Cristian
-
-
-### 1. Haga una exploración rápida de sus datos, para eso haga un resumen de su conjunto de datos.
-``` {r}
-summary(movies)
-```
 
 ### 4.11 ¿Cómo se correlacionan los presupuestos con los ingresos? ¿Los altos presupuestos significan altos ingresos? Haga los gráficos que necesite, histograma, diagrama de dispersión
 ``` {r}
