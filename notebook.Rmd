@@ -44,7 +44,7 @@ str(movies)
 * productionCompantCountry: cualitativa nominal  
 * productionCountry: cualitativa nominal  
 * productionCountriesAmount: cuantitativa discreta  
-* releaseDate: cualitativa nominal  
+* releaseDate: cuantitativa discreta
 * voteCount: cuantitativa discreta  
 * voteAvg: cuantitativa continua  
 * actors: cualitativa nominal  
