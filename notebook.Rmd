@@ -5,10 +5,10 @@ date: "2023-02-02"
 output: html_document
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 
 ``` {r}
 movies <- read.csv("movies.csv")
@@ -44,7 +44,7 @@ str(movies)
 * productionCompantCountry: cualitativa nominal  
 * productionCountry: cualitativa nominal  
 * productionCountriesAmount: cuantitativa discreta  
-* releaseDate: cuantitativa discreta
+* releaseDate: cualitativa nominal  
 * voteCount: cuantitativa discreta  
 * voteAvg: cuantitativa continua  
 * actors: cualitativa nominal  
@@ -54,7 +54,70 @@ str(movies)
 * castWomenAmount: cuantitativa discreta  
 * castMenAmount: cuantitativa discreta  
 
+### 3. Investigue si las variables cuantitativas siguen una distribución normal y haga una tabla de frecuencias de las variables cualitativas. Explique todos los resultados.
 
+### popularity 
+```{r}
+library(nortest)
+qqnorm(movies$popularity)
+qqline(movies$popularity, col="red")
+normP <- lillie.test(movies$popularity)
+pnormP <- normP$p.value
+```
+norm: `r pnormP`
+
+### budget 
+```{r}
+library(nortest)
+qqnorm(movies$budget)
+qqline(movies$budget, col="red")
+normBud <- lillie.test(movies$budget)
+pnormBud <- normBud$p.value
+```
+norm: `r pnormBud`
+
+### revenue 
+```{r}
+library(nortest)
+qqnorm(movies$revenue)
+qqline(movies$revenue, col="red")
+normRev <- lillie.test(movies$revenue)
+pnormRev <- normRev$p.value
+```
+norm: `r pnormRev`
+
+### runtime 
+```{r}
+library(nortest)
+qqnorm(movies$runtime)
+qqline(movies$runtime, col="red")
+normRun <- lillie.test(movies$runtime)
+pnormRun <- normRun$p.value
+```
+norm: `r pnormRun`
+
+### genresAmount
+```{r}
+library(nortest)
+qqnorm(movies$genresAmount)
+qqline(movies$genresAmount, col="red")
+normGenAm <- lillie.test(movies$genresAmount)
+pnormGenAm <- normGenAm$p.value
+```
+norm: `r pnormGenAm`
+
+## Tabla de frecuencias para variables cualitativas
+
+### original_title
+```{r}
+#table(movies$originalTitle)
+```
+
+### 4.1 ¿Cuáles son las 10 películas que contaron con más presupuesto?
+```{r}
+moviesP <- movies[order(-movies$budget),]
+head(moviesP$title, 10)
+```
 
 
 
