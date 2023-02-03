@@ -232,32 +232,24 @@ ggscatter(movies, x = "castWomenAmount", y = "popularity",
 
 ## Cristian
 
+### 4.10 ¿Quiénes son los directores que hicieron las 20 películas mejor calificadas?
+``` {r}
+order_best_movies <- movies[order(-movies$voteCount),]
+result <- order_best_movies[1:20, c("title", "director")]
+print(result)
+```
+
 ### 4.11 ¿Cómo se correlacionan los presupuestos con los ingresos? ¿Los altos presupuestos significan altos ingresos? Haga los gráficos que necesite, histograma, diagrama de dispersión
 ``` {r}
 hist(movies$budget, main = "¿Cómo se correlacionan los presupuestos con los ingresos?")
 ```
 
-### 4.15 ¿A qué género principal pertenecen las películas más largas? (genres, runtime)
+### 4.15 ¿A qué género principal pertenecen las películas más largas?
 ``` {r}
+long_movies <- movies[order(-movies$runtime), ]
+result_five_movies <- long_movies[0:5, ]
 
+for (i in 0:5) {
+  cat(result_five_movies$title[i], ":", result_five_movies$genres[i], "\n")
+}
 ```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
