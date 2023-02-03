@@ -14,7 +14,14 @@ knitr::opts_chunk$set(echo = TRUE)
 movies <- read.csv("movies.csv")
 ```
 
+## Cristian
+### 1. Haga una exploración rápida de sus datos, para eso haga un resumen de su conjunto de datos.
+``` {r}
+summary(movies)
+```
+
 ## Sara
+### a
 
 
 
@@ -29,25 +36,30 @@ La pelicula con menos votos es: `r movie`
 
 ## 4.5 ¿Cuántas  películas  se  hicieron  en  cada  año?  ¿En  qué  año  se  hicieron  más películas? Haga un gráfico de barras 
 
-
 ``` {r}
 dates <- as.POSIXct(movies[,"releaseDate"], format = "%Y-%m-%d")
 years <- sort(c(format(dates, format="%Y")))
 release_years = sort(table(years), decreasing = TRUE)
 print(summary.factor(factor(years)))
 ```
+```{r}
+
+barplot(table(years))
+```
+El año con más peliculas estrenadas fue 2021.
 
 
 ## Cristian
 
+### 4.11 ¿Cómo se correlacionan los presupuestos con los ingresos? ¿Los altos presupuestos significan altos ingresos? Haga los gráficos que necesite, histograma, diagrama de dispersión
+``` {r}
+hist(movies$budget, main = "¿Cómo se correlacionan los presupuestos con los ingresos?")
+```
 
+### 4.15 ¿A qué género principal pertenecen las películas más largas? (genres, runtime)
+``` {r}
 
-
-
-
-
-
-
+```
 
 ## R Markdown
 
