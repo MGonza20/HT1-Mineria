@@ -27,8 +27,15 @@ movie <- movies[movies$voteAvg == min_votes,"title"]
 ```
 La pelicula con menos votos es: `r movie`
 
+## 4.5 ¿Cuántas  películas  se  hicieron  en  cada  año?  ¿En  qué  año  se  hicieron  más películas? Haga un gráfico de barras 
 
 
+``` {r}
+dates <- as.POSIXct(movies[,"releaseDate"], format = "%Y-%m-%d")
+years <- sort(c(format(dates, format="%Y")))
+release_years = sort(table(years), decreasing = TRUE)
+print(summary.factor(factor(years)))
+```
 
 
 ## Cristian
