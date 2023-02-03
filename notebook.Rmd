@@ -121,7 +121,6 @@ head(moviesP$title, 10)
 
 
 
-## Guillermo
 
 ### 4.4 ¿Cuál es la peor película de acuerdo a los votos de todos los usuarios? 
 ``` {r}
@@ -139,10 +138,82 @@ release_years = sort(table(years), decreasing = TRUE)
 print(summary.factor(factor(years)))
 ```
 ```{r}
-
 barplot(table(years))
 ```
 El año con más peliculas estrenadas fue 2021.
+
+## 4.6 ¿Cuál es el género principal de las 20 películas más recientes? ¿Cuál es el género principal que predomina en el conjunto de datos? Represéntelo usando un gráfico
+
+``` {r}
+recent_20_movies_genres = head(movies[order(movies$releaseDate, decreasing = TRUE),"genres"],20)
+genres_factor <- factor()
+for (g in recent_20_movies_genres){
+  splitted = unlist(strsplit(g, "|", fixed=T))
+  new_factor <- factor(splitted)
+  genres_factor <- append(genres_factor, new_factor)
+}
+f <- unlist(genres_factor)
+print(summary.factor(f))
+barplot(table(f), horiz = T)
+
+```
+
+El genero principal de las 20 peliculas más recientes es drama y comedia.
+
+
+``` {r}
+movies_genres = movies[order(movies$releaseDate, decreasing = TRUE),"genres"]
+genres_factor <- factor()
+for (g in movies_genres){
+  splitted = unlist(strsplit(g, "|", fixed=T))
+  new_factor <- factor(splitted)
+  genres_factor <- append(genres_factor, new_factor)
+}
+f <- unlist(genres_factor)
+print(summary.factor(f))
+barplot(table(f), horiz = T)
+
+```
+El genero que mas predomina es Drama, con 3789 peliculas.
+
+
+## 4.7 ¿Las películas de qué genero principal obtuvieron mayores ganancias? 
+``` {r}
+revenue_drama = movies[movies$genres,"revenue"]
+```
+
+
+## 4.8 ¿La cantidad de actores influye en los ingresos de las películas?¿se han hecho 
+películas con más actores en los últimos años? 
+``` {r}
+actor_q = movies[, "actorsAmount"]
+revenue = movies[, "revenue"]
+q = cor(actor_q, revenue, method="pearson")
+library("ggpubr")
+ggscatter(movies, x = "actorsAmount", y = "revenue", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Cantidad de Actores", ylab = "Ganancia")
+```
+
+Dado un coeficiente p de 0.051 podemos descartar una correlación entre la cantidad de actores y las ganancias de las películas.
+
+## 4.9 ¿Es posible que la cantidad de hombres y mujeres en el  reparto influya en la 
+popularidad y los ingresos de las películas? 
+
+``` {r}
+#actor_w = movies[, "castWomenAmount"]
+#actor_m = movies[, "castMenAmount"]
+
+#revenue = movies[, "revenue"]
+#popularity = movies[, "popularity"]
+
+library("ggpubr")
+ggscatter(movies, x = "castWomenAmount", y = "popularity", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Cantidad de Mujeres", ylab = "Ganancia")
+```
 
 
 ## Cristian
