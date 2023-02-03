@@ -127,6 +127,13 @@ moviesP <- movies[order(-movies$revenue),]
 head(select(moviesP, title, revenue), 10)
 ```
 
+### 4.3 ¿Cuál es la película que más votos tuvo?
+```{r}
+library(dplyr)
+moviesP <- movies[order(-movies$voteCount),]
+head(select(moviesP, title, voteCount), 1)
+```
+
 
 
 ### 4.4 ¿Cuál es la peor película de acuerdo a los votos de todos los usuarios? 
