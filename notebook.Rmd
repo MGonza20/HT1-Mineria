@@ -14,13 +14,11 @@ knitr::opts_chunk$set(echo = TRUE)
 movies <- read.csv("movies.csv")
 ```
 
-## Cristian
 ### 1. Haga una exploración rápida de sus datos, para eso haga un resumen de su conjunto de datos.
 ``` {r}
 summary(movies)
 ```
 
-## Sara
 ### 2. Diga el tipo de cada una de las variables (cualitativa ordinal o nominal, cuantitativa continua, cuantitativa discreta) 
 ```{r}
 str(movies)
@@ -61,51 +59,116 @@ str(movies)
 library(nortest)
 qqnorm(movies$popularity)
 qqline(movies$popularity, col="red")
-normP <- lillie.test(movies$popularity)
-pnormP <- normP$p.value
+lillie.test(movies$popularity)
 ```
-norm: `r pnormP`
 
 ### budget 
 ```{r}
 library(nortest)
 qqnorm(movies$budget)
 qqline(movies$budget, col="red")
-normBud <- lillie.test(movies$budget)
-pnormBud <- normBud$p.value
+lillie.test(movies$budget)
 ```
-norm: `r pnormBud`
 
 ### revenue 
 ```{r}
 library(nortest)
 qqnorm(movies$revenue)
 qqline(movies$revenue, col="red")
-normRev <- lillie.test(movies$revenue)
-pnormRev <- normRev$p.value
+lillie.test(movies$revenue)
 ```
-norm: `r pnormRev`
 
 ### runtime 
 ```{r}
 library(nortest)
 qqnorm(movies$runtime)
 qqline(movies$runtime, col="red")
-normRun <- lillie.test(movies$runtime)
-pnormRun <- normRun$p.value
+lillie.test(movies$runtime)
 ```
-norm: `r pnormRun`
 
 ### genresAmount
 ```{r}
 library(nortest)
 qqnorm(movies$genresAmount)
 qqline(movies$genresAmount, col="red")
-normGenAm <- lillie.test(movies$genresAmount)
-pnormGenAm <- normGenAm$p.value
+lillie.test(movies$genresAmount)
 ```
-norm: `r pnormGenAm`
 
+### productionCoAmount
+```{r}
+library(nortest)
+qqnorm(movies$productionCoAmount)
+qqline(movies$productionCoAmount, col="red")
+lillie.test(movies$productionCoAmount)
+```
+
+### productionCountriesAmount
+```{r}
+library(nortest)
+qqnorm(movies$productionCountriesAmount)
+qqline(movies$productionCountriesAmount, col="red")
+lillie.test(movies$productionCountriesAmount)
+```
+
+### voteCount 
+```{r}
+library(nortest)
+qqnorm(movies$voteCount)
+qqline(movies$voteCount, col="red")
+lillie.test(movies$voteCount)
+```
+
+### voteAvg
+```{r}
+library(nortest)
+qqnorm(movies$voteAvg)
+qqline(movies$voteAvg, col="red")
+lillie.test(movies$voteAvg)
+```
+
+### actorsAmount
+```{r}
+library(nortest)
+qqnorm(movies$actorsAmount)
+qqline(movies$actorsAmount, col="red")
+lillie.test(movies$actorsAmount)
+```
+
+Dadas las gráficas la mayor parte de las variables cuantitativas no siguen una distribución normal.
+
+## Tabla de frecuencias para variables cualitativas
+
+### director
+```{r}
+table(movies$director)
+```
+
+### genres 
+```{r}
+table(movies$genres)
+```
+
+### productionCompany
+```{r}
+table(movies$productionCompany)
+```
+
+### productionCompanyCountry
+```{r}
+table(movies$productionCompanyCountry)
+```
+
+### productionCountry
+```{r}
+table(movies$productionCountry)
+```
+
+### actors
+```{r}
+table(movies$actors)
+```
+
+Se tomaron en cuenta las variables anteriores dado que hay varias tales como id o titulo original en las que la frecuencia solamente es 1.
 ## Tabla de frecuencias para variables cualitativas
 
 ### original_title
@@ -258,7 +321,7 @@ plot(budget, revenue, pch = 19, col = "lightblue")
 abline(lm(revenue ~ budget), col = "red", lwd = 3)
 text(paste("Correlation:", round(cor(budget, revenue), 2)), x = 25, y = 95)
 ```
-
+El indice de correlación es 0.76, por lo que las variables están relacionadas ligeramente.
 ### 4.15 ¿A qué género principal pertenecen las películas más largas?
 ``` {r}
 long_movies <- movies[order(-movies$runtime), ]
